@@ -1,6 +1,8 @@
 
 # 🛍️ HoodGoods – Local Artisan Marketplace
 
+🌐 **Live Website**: [https://victorious-mud-0224f2003.6.azurestaticapps.net](https://victorious-mud-0224f2003.6.azurestaticapps.net/)
+
 **HoodGoods** is a full-stack web application designed to connect local artisans with buyers through a curated digital marketplace. Built with user-first design, secure authentication, and robust e-commerce features, HoodGoods empowers small business owners to showcase and manage their products online.
 
 ---
