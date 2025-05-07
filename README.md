@@ -7,6 +7,22 @@
 
 ---
 
+## 👥 Contributors
+
+| Name                | Student Number |
+|---------------------|----------------|
+| Abdullah Ali        | 2309318        |
+| Ahmed Nanabhai      | 2450939        |
+| Kaylan Gokal        | 2724001        |
+| Shervaan Govinder   | 2556996        |
+| Muzzammil Soofie    | 2731823        |
+| Jaishil Patel       | 2602867        |
+
+- Built as part of a full-stack software engineering course over 4 sprints
+- Mentored by faculty and supported with client interaction & feedback loops
+
+---
+
 ## 📌 Project Overview
 
 HoodGoods provides an intuitive and seamless experience for:
@@ -58,14 +74,6 @@ UML Diagrams included:
 - Activity Diagram
 - State Diagram
 - Deployment Diagram
-
----
-
-## 👥 Contributors
-
-- Team of 6 students at Wits University (2025)
-- Built as part of a full-stack software engineering course over 4 sprints
-- Mentored by faculty and supported with client interaction & feedback loops
 
 ---
 
