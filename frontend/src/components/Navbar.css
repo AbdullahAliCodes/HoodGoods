@@ -1,0 +1,194 @@
+/* In Navbar.css */
+
+/* Ensure variables are defined in index.css :root */
+
+.navbar {
+  background-color: var(--light-purple, #F9F6FD);
+  padding: 0.8rem 0;
+  /* --- MODIFIED: Changed position to fixed for always-visible navbar --- */
+  position: fixed;   /* Changed from sticky */
+  top: 0;            /* Stick to the top */
+  left: 0;           /* Align to the left edge */
+  width: 100%;       /* Span full viewport width */
+  /* --- END MODIFICATION --- */
+  z-index: 100;      /* Ensure it's above other content */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* --- ADDED: Padding for body to prevent overlap --- */
+/* Add this rule to your global CSS or where appropriate */
+/* Adjust the padding-top value based on your navbar's actual height */
+body { /* Or your main content wrapper class/id */
+  padding-top: 70px; /* Example value - MUST ADJUST based on navbar height! */
+}
+/* --- END ADDED --- */
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo-container {
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 55px;
+  width: 55px;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  all: unset; /* 👈 Reset all native button styles /
+  display: inline-block; / 👈 Make it behave like a link */
+  color: var(--text-color, #333);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-family: inherit;
+  padding: 0.5rem 0.25rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--secondary-color, #B48C77);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--primary-color, #432C53);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* --- Authentication Button Styling --- */
+.sign-in-btn,
+.sign-out-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.sign-in-btn {
+  background-color: var(--primary-color, #432C53);
+  color: var(--white, #fff);
+  border-color: var(--primary-color, #432C53);
+}
+
+.sign-in-btn:hover,
+.sign-in-btn:focus {
+  background-color: #362245;
+  border-color: #362245;
+}
+
+.auth-user {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.user-greeting {
+  font-size: 0.9rem;
+  color: var(--text-color, #333);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sign-out-btn {
+  background-color: var(--white, #fff);
+  color: var(--primary-color, #432C53);
+  border: 1px solid var(--primary-color, #432C53);
+}
+
+.sign-out-btn:hover,
+.sign-out-btn:focus {
+  background-color: #f8f8f8;
+  border-color: #362245;
+  color: #362245;
+}
+
+.sign-in-btn:focus-visible,
+.sign-out-btn:focus-visible {
+   outline: 2px solid var(--primary-color, #432C53);
+   outline-offset: 2px;
+}
+/* --- End Authentication Button Styling --- */
+
+
+/* --- Icon Link Styling --- */
+.icon-link {
+  color: var(--text-color, #333);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.icon-link:hover,
+.icon-link:focus {
+  color: var(--secondary-color, #B48C77);
+}
+
+.icon-link svg {
+  /* --- ADJUSTED: Increased icon size --- */
+  width: 25px;
+  height: 25px;
+}
+
+.icon-link:focus-visible {
+   outline: 2px solid var(--primary-color, #432C53);
+   outline-offset: 2px;
+   border-radius: 50%;
+}
+/* --- End Icon Link Styling --- */
+
+
+/* --- Responsive Styling --- */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .navbar-container {
+    justify-content: space-between;
+  }
+
+  .user-greeting {
+    display: none;
+  }
+  .auth-user {
+    gap: 0.5rem;
+  }
+  .nav-icons {
+      gap: 0.8rem;
+  }
+}

@@ -1,0 +1,155 @@
+/* CartPage.css */
+
+/* --- START: Grid rules for Summary Details --- */
+
+.summary-details {
+  display: grid;              /* USE GRID */
+  grid-template-columns: auto 1fr; /* Column 1 (label) sized by content, Column 2 (value) takes remaining space */
+  gap: 0.5rem 1rem;           /* 0.5rem space BETWEEN rows, 1rem space BETWEEN columns */
+  align-items: baseline;      /* Align text baselines vertically within each row */
+  margin: 0;                  /* Reset default dl margin */
+  padding: 0;                 /* Reset default dl padding */
+}
+
+.summary-details dt {
+  grid-column: 1 / 2;         /* Explicitly place <dt> in the first column */
+  text-align: left;           /* Align label text left */
+  margin: 0;                  /* Reset any default margins */
+  padding: 0;                 /* Reset any default padding */
+  font-weight: normal;
+  /* No width or basis needed - grid handles sizing */
+}
+
+.summary-details dd {
+  grid-column: 2 / 3;         /* Explicitly place <dd> in the second column */
+  text-align: right;          /* Align value text right */
+  margin: 0;                  /* IMPORTANT: Override default dd indentation (margin-left) */
+  padding: 0;                 /* Reset any default padding */
+  font-weight: normal;
+  /* No width or basis needed */
+}
+
+/* Style the total row specifically (inherits grid placement) */
+.summary-details .total-label,
+.summary-details .total-value {
+  font-weight: bold;
+}
+
+/* --- END: Grid rules --- */
+
+
+/* --- START: Loading Indicator Styles --- */
+
+/* Container to center the loading indicator */
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Stack spinner and text vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; /* Ensure it takes up some space (Adjusted to keep the latter value) */
+  padding: 2rem;
+  text-align: center;
+  color: #555; /* Adjust color as needed */
+}
+
+/* The Spinner itself */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #ccc; /* Light grey border (Adjusted from rgba) */
+  border-top-color: #97c9ba; /* Your desired green instead of blue */
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite; /* faster spin */
+  margin-bottom: 16px; /* Space below spinner */
+}
+
+/* The spin animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text */
+.loading-container p {
+  font-size: 1.2rem; /* Keeping the latter definition */
+  color: #555;
+  /* Add other styles like font-weight if desired */
+}
+
+/* --- END: Loading Indicator Styles --- */
+
+
+/* --- START: Cart Summary Layout --- */
+
+/* General layout for the summary section */
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* --- END: Cart Summary Layout --- */
+
+
+/* --- START: Cart Action Button Styles --- */
+/* Styles for the buttons in the cart summary (Checkout, Clear Cart, Continue Shopping) */
+
+.cart-actions {
+display: flex;
+flex-direction: column; /* Stack buttons vertically */
+gap: 0.75rem;          /* Adjust space between buttons as needed */
+margin-top: 1rem;       /* Add space above the buttons */
+}
+
+/* Common styles for ALL buttons in cart actions */
+.cart-actions .checkout-btn,
+.cart-actions .clear-cart-btn {
+display: block;          /* Ensure Link elements behave like block buttons */
+padding: 0.8rem 1.5rem;  /* ** Adjust padding to match your desired size ** */
+border-radius: 6px;      /* ** Adjust for desired corner rounding ** */
+font-size: 1rem;         /* ** Adjust font size ** */
+font-weight: 600;        /* ** Adjust font weight ** */
+text-align: center;
+text-decoration: none;   /* Removes underline from Link elements */
+border: none;            /* Removes default border */
+cursor: pointer;
+transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+width: 100%;             /* Make buttons fill container width */
+box-sizing: border-box;  /* Ensures padding doesn't add to width */
+}
+
+/* Specific styles for Primary Buttons (Checkout, Continue Shopping) */
+.cart-actions .checkout-btn {
+background-color: #4a2a66; /* ** Dark Purple - VERIFY this hex code matches your design ** */
+color: white;
+}
+
+/* Specific styles for Clear Cart Button */
+.cart-actions .clear-cart-btn {
+background-color: #97c9ba; /* Your desired teal background */
+color: #1f1f1f;          /* Dark text - or use 'white' if you prefer */
+}
+
+/* Optional: Hover Styles */
+.cart-actions .checkout-btn:hover {
+background-color: #3b1a54; /* Slightly darker purple */
+}
+
+.cart-actions .clear-cart-btn:hover {
+background-color: #7fbbaa; /* Slightly darker teal */
+}
+
+/* --- END: Cart Action Button Styles --- */
+
+
+/* --- START: Global Settings (Keep at end or move to global stylesheet) --- */
+
+/* Optional: Ensure global box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* --- END: Global Settings --- */
+
+/* ... Add any other specific CartPage styles below if needed ... */

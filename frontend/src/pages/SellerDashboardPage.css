@@ -1,0 +1,334 @@
+/* src/pages/SellerDashboardPage.css */
+
+.seller-dashboard-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f0f2f5; /* Light background for the whole page */
+}
+
+.seller-dashboard-container h1,
+.seller-dashboard-container h2 {
+    color: #333;
+}
+
+.dashboard-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #ffffff; /* White background for sections */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Softer shadow */
+}
+
+.error-message {
+    color: #dc3545; /* Bootstrap danger red */
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+}
+
+.update-error { /* Used for status update errors below list */
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    color: #721c24; /* Ensure text color contrasts */
+}
+
+
+.earnings-display {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #28a745; /* Bootstrap success green */
+    margin-top: 0.5rem;
+}
+
+/* --- Styles for Orders Section Header & Filter --- */
+.orders-header {
+    display: flex;
+    flex-wrap: wrap; /* Allow filter to wrap below title on small screens */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Space below header */
+    gap: 1rem; /* Space between title and filter */
+    border-bottom: 1px solid #eee; /* Optional separator */
+    padding-bottom: 1rem; /* Optional padding */
+}
+
+.orders-header h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.order-filter-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Space between label and select */
+}
+
+.order-filter-container label {
+    font-weight: 500; /* Match status update label */
+    font-size: 0.95em;
+    margin-bottom: 0; /* Remove default bottom margin */
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+/* Style for the filter select - reuse/adapt .status-select styles */
+.status-filter-select {
+    padding: 0.6rem 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 180px; /* Provide ample width */
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    /* Add focus styles consistent with other inputs if desired */
+}
+
+.status-filter-select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+/* --- End Styles --- */
+
+
+.order-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive grid */
+}
+
+.no-orders-message { /* Added class for styling empty state */
+    padding: 2rem;
+    text-align: center;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border: 1px dashed #dee2e6;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+
+.order-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.25rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.order-card:hover {
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.order-header { /* Ensure styles here don't conflict with .orders-header */
+    /* Styles specific to the card header */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.order-header h3 { /* Target h3 inside card header */
+    margin: 0;
+    font-size: 1.1em;
+    color: #0056b3;
+}
+
+.order-details {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.order-details p {
+    margin-bottom: 0.4rem;
+}
+.order-details p:last-child {
+    margin-bottom: 0; /* Remove margin on last p */
+}
+
+
+.items-section {
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.items-section h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1em;
+    color: #444;
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed #eee;
+}
+
+.item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+
+.item-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #f8f9fa;
+    flex-shrink: 0;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.item-details span:first-child {
+    font-weight: 500;
+    color: #333;
+}
+
+
+.status-update-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.status-update-section label {
+    font-weight: 500;
+    font-size: 0.95em;
+    margin-bottom: 0; /* Align with select */
+}
+
+/* Style used for BOTH update and filter selects */
+.status-select,
+.status-filter-select {
+    padding: 0.6rem 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 160px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    line-height: 1.4; /* Match button line-height */
+}
+
+.status-select:disabled,
+.status-filter-select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    opacity: 0.7; /* Added opacity */
+}
+
+.updating-indicator {
+    margin-left: 10px;
+    font-style: italic;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    padding: 0.25em 0.6em;
+    border-radius: 0.25rem;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #fff; /* Default text color */
+    text-align: center;
+    white-space: nowrap;
+}
+
+.status-processing { background-color: #ffc107; color: #333; } /* Yellowish */
+.status-packaging { background-color: #17a2b8; } /* Teal */
+.status-ready, /* Use same color for Ready for Pickup */
+.status-ready-for-pickup /* Allow for space in name */ { background-color: #007bff; } /* Blue */
+.status-shipped { background-color: #fd7e14; } /* Orange */
+.status-delivered { background-color: #28a745; } /* Green */
+.status-cancelled { background-color: #dc3545; text-decoration: line-through; } /* Red */
+.status-unknown { background-color: #6c757d; } /* Gray for default/unknown */
+
+/* Add focus styles for selects for accessibility */
+.status-select:focus,
+.status-filter-select:focus {
+  border-color: #97c9ba; /* Match your primary color */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(151, 201, 186, 0.25); /* Adjusted focus shadow */
+}
+
+
+/* === Loading Spinner Styles === */
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Stack spinner and text vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; /* Give it some vertical space for standalone loading */
+  padding: 2rem;
+  text-align: center;
+  color: #555; /* Text color */
+}
+
+/* Adjustments for inline loading (within page content) */
+.dashboard-section > .loading-container { /* Target only direct children */
+    min-height: 150px; /* Reduce height when shown inline */
+    padding: 1rem 0; /* Reduce padding when inline */
+    background-color: transparent; /* Ensure it doesn't override section bg */
+    box-shadow: none; /* Ensure it doesn't override section shadow */
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #ccc; /* Light grey base border */
+  /* Use your primary color for the spinning part */
+  border-top-color: #97c9ba; /* Your primary green color */
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite; /* Reference the spin animation */
+  margin-bottom: 1rem; /* Space between spinner and text */
+}
+
+/* The spin animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text style */
+.loading-container p {
+  font-size: 1.1em;
+  color: #555;
+}
+/* === End Loading Spinner Styles === */

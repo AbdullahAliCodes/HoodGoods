@@ -1,0 +1,168 @@
+/* In WhyChooseUs.css */
+
+/* --- Reset semantic elements used in the component if needed --- */
+/* section, article, aside, main, figure, figcaption, ul, li {
+  all: unset;
+  display: block;
+} */
+/* --- End reset --- */
+
+
+.why-choose-us {
+  padding: 4rem 0;
+  /* background-color: var(--accent-background, #F5F1EC); */
+}
+
+/* About Us section styling */
+.about-us-content {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+  /* --- ADDED: Match .why-choose-us-row container --- */
+  max-width: 1200px; /* Or your desired shared max-width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;  /* Match padding */
+  padding-right: 1rem; /* Match padding */
+  /* --- End Added --- */
+}
+
+.about-us-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-color, #444);
+  /* max-width: 900px; */ /* <-- REMOVED (optional, let parent control width) */
+  text-align: left;   /* Ensure left alignment */
+}
+
+/* Why Choose Us row layout */
+.why-choose-us-row {
+  /* display: grid; */ /* <-- Comment out or remove */
+  /* grid-template-columns: 3fr 1fr; */ /* <-- Comment out or remove */
+  /* gap: 2rem; */ /* <-- Gap is likely not needed if it's not a grid */
+  /* align-items: start; */ /* <-- Alignment for grid items */
+
+  /* Keep these properties to center the content block */
+  max-width: 1200px; /* Consistent max-width */
+  margin: 0 auto;   /* Center the row */
+  padding: 0 1rem;  /* Consistent padding */
+}
+
+/* .why-choose-us-content {
+  display: flex;
+  flex-direction: column;
+} */
+
+/* Section title within this component */
+.why-choose-us-content .section-title,
+.about-us-content .section-title {
+    text-align: left; /* Ensure left alignment */
+    margin-bottom: 2rem;
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 4rem; /* Your change here is correct */
+  margin-top: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left; /* Ensure text inside aligns left */
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.feature-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--secondary-color, #B48C77);
+}
+
+.feature-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: black;
+  text-align: left; /* Ensure left alignment */
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: var(--text-color, #666);
+  line-height: 1.6;
+  text-align: left; /* Ensure left alignment */
+}
+
+.why-choose-us-image {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+  align-self: center;
+}
+
+.why-choose-us-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(27, 27, 27, 0.1);
+  display: block;
+}
+
+/* Responsive styling */
+@media (max-width: 992px) {
+  .why-choose-us-row {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose-us-image {
+    order: -1;
+    height: 350px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+  }
+
+  
+  
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .why-choose-us-image {
+    height: 300px;
+  }
+   .about-us-text {
+       font-size: 1.1rem;
+       /* text-align: left; */ /* Already set */
+   }
+   .feature-description {
+       font-size: 0.95rem;
+   }
+   .why-choose-us-content .section-title,
+   .about-us-content .section-title {
+       /* text-align: center; */ /* Optional: re-center titles on mobile */
+       font-size: 1.8rem;
+   }
+}

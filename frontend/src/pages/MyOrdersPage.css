@@ -1,0 +1,230 @@
+/* src/pages/MyOrdersPage.css */
+
+.my-orders-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #f0f2f5; /* Light background */
+}
+
+.my-orders-container h1,
+.my-orders-container h2,
+.my-orders-container h3,
+.my-orders-container h4 {
+    color: #333;
+}
+
+.error-message {
+    color: #dc3545; /* Bootstrap danger red */
+    font-weight: bold;
+    background-color: #f8d7da; /* Light red background for errors */
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.order-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.order-header h2 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.order-header span {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.order-details-overall {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1em;
+    color: #444;
+}
+
+.order-details-overall p {
+    margin-bottom: 0.5rem;
+}
+
+.shipments-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.shipments-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1em;
+}
+
+.shipment-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background-color: #f9f9f9;
+}
+
+.shipment-card:last-child {
+    margin-bottom: 0;
+}
+
+.shipment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.shipment-header h4 {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.shipment-details {
+    font-size: 0.9em;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+.shipment-details p {
+    margin-bottom: 0.3rem;
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed #eee;
+}
+
+.item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #f8f9fa;
+    flex-shrink: 0;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.item-details span:first-child {
+    font-weight: 500;
+    color: #333;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    padding: 0.25em 0.6em;
+    border-radius: 0.25rem;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #fff; /* Default text color */
+    text-align: center;
+    white-space: nowrap;
+}
+
+.status-processing { background-color: #ffc107; color: #333; }
+.status-packaging { background-color: #17a2b8; }
+.status-ready { background-color: #007bff; }
+.status-shipped { background-color: #fd7e14; }
+.status-delivered { background-color: #28a745; }
+.status-cancelled { background-color: #dc3545; text-decoration: line-through; }
+.status-unknown { background-color: #6c757d; }
+
+
+/* === Loading Spinner Styles === */
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Stack spinner and text vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; /* Give it some vertical space for standalone loading */
+  padding: 2rem;
+  text-align: center;
+  color: #555; /* Text color */
+}
+
+/* Adjustments for inline loading (within page content) */
+.my-orders-container > .loading-container {
+    min-height: 150px; /* Reduce height when shown inline */
+    padding: 1rem 0; /* Reduce padding when inline */
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #ccc; /* Light grey base border */
+  /* Use your primary color for the spinning part */
+  border-top-color: #97c9ba; /* Your primary green color */
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite; /* Reference the spin animation */
+  margin-bottom: 1rem; /* Space between spinner and text */
+}
+
+/* The spin animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text style */
+.loading-container p {
+  font-size: 1.1em;
+  color: #555;
+}
+/* === End Loading Spinner Styles === */

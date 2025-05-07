@@ -1,0 +1,236 @@
+/* Define global CSS variables */
+:root {
+  /* Define your theme colors here */
+  --primary-color: #432C53; /* Example: Using your main purple as primary */
+  --secondary-color: #432C53; /* --- DEFINED HERE (using same purple for now) --- */
+  /* You might want a different color for secondary, e.g., #8a6a9a */
+  --light-purple: #F9F6FD; /* Defined from Hero section */
+  --text-color: #333333; /* Default text color */
+  --border-color: #e0e0e0; /* Default border color */
+  /* Add any other global variables */
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-all {
+  font-size: 0.9rem;
+  /* Uses the defined secondary color */
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  border: none; /* Added to ensure consistency */
+  cursor: pointer; /* Added */
+}
+
+.btn-primary {
+  /* Uses the defined primary color */
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  /* Consider using color-mix or a variable for the hover state */
+  background-color: #362245;
+}
+
+.btn-secondary {
+  background-color: white;
+  /* Uses the defined secondary color */
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: #f5f5f5;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-purple-bg {
+  /* Uses the defined light purple color */
+  background-color: var(--light-purple);
+}
+
+/* === Cart Styles === */
+/* (Keeping cart styles as they were) */
+.cart-container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cart-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.cart-items {
+  flex: 2;
+}
+
+.cart-item {
+  display: flex;
+  border-bottom: 1px solid var(--border-color, #ddd); /* Using variable */
+  padding: 1rem 0;
+  gap: 1rem;
+  align-items: center;
+}
+
+.item-image-container {
+  flex: 0 0 120px;
+}
+
+.item-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem;
+}
+
+.item-price,
+.item-subtotal {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.quantity-btn {
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  background: none;
+  cursor: pointer;
+}
+
+.quantity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity {
+  font-size: 1rem;
+}
+
+.remove-btn {
+  font-size: 1.5rem;
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-summary {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid var(--border-color, #ddd); /* Using variable */
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 350px;
+  /* Added to make it stick if needed */
+  /* align-self: flex-start; */
+  /* position: sticky; */
+  /* top: 2rem; */
+}
+
+.summary-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.summary-row.total {
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+}
+
+.cart-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checkout-btn,
+.clear-cart-btn {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.checkout-btn {
+  background-color: var(--primary-color); /* Using variable */
+  color: white;
+}
+
+.clear-cart-btn {
+  background-color: #ccc;
+  color: black;
+}

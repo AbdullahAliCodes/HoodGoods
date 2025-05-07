@@ -1,0 +1,623 @@
+/* === Base and Layout Styles === */
+main.my-store-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: sans-serif;
+  color: #333;
+}
+
+header.store-header {
+  display: flex;
+  flex-wrap: wrap;           /* Allow wrapping */
+  justify-content: space-between; /* Less relevant now, but keep */
+  align-items: flex-start;
+  gap: 20px;                  /* Gap between wrapped rows */
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+header.store-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0;
+  width: 100%; /* Force H1 to take full width -> puts it on its own line */
+  box-sizing: border-box; /* Include padding/border in width calculation */
+}
+
+/* === Delivery Info Section Styles === */
+section.delivery-info-display {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 15px 20px;
+  margin-top: 15px; /* Add some space below the H1 */
+  width: 100%;     /* Force Delivery section to take full width -> puts it on its own line */
+  box-sizing: border-box;
+}
+
+.delivery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 8px;
+}
+
+section.delivery-info-display h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #495057;
+}
+
+.delivery-header .button-edit {
+  padding: 4px 12px;
+  font-size: 0.9em;
+  flex-shrink: 0;
+}
+
+section.delivery-info-display dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 15px;
+  font-size: 0.95em;
+}
+
+section.delivery-info-display dt {
+  font-weight: 600;
+  color: #495057;
+  grid-column: 1;
+}
+
+section.delivery-info-display dd {
+  margin: 0;
+  color: #212529;
+  grid-column: 2;
+}
+
+p.info-text {
+  font-size: 0.85em;
+  color: #6c757d;
+  margin-top: 15px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+form.delivery-edit-form {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #dee2e6;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+form.delivery-edit-form label {
+  margin-top: 10px;
+}
+form.delivery-edit-form label:first-of-type {
+  margin-top: 0;
+}
+
+.delivery-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+
+/* === Store Actions Container (Add Product / View Orders buttons) === */
+.store-actions-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px; /* Keep margin below delivery section */
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+/* === General Button Styles === */
+button, .button-link, a.button-secondary, a.button-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
+  line-height: 1.4;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+button:disabled, .button-link:disabled, a.button-secondary:disabled, a.button-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.65 !important;
+  background-color: #cccccc !important;
+  border-color: #cccccc !important;
+  color: #666666 !important;
+}
+
+/* Primary action button */
+.button-primary,
+.add-product-toggle-btn {
+  background-color: #97c9ba;
+  color: white;
+  border-color: #97c9ba;
+}
+.button-primary:hover:not(:disabled),
+.add-product-toggle-btn:hover:not(:disabled) {
+  background-color: #432C53;
+  border-color: #432C53;
+  color: white;
+}
+
+/* Secondary action button */
+.button-secondary,
+.view-orders-btn {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+.button-secondary:hover:not(:disabled),
+.view-orders-btn:hover:not(:disabled) {
+  background-color: #5a6268;
+  border-color: #545b62;
+  color: white;
+  text-decoration: none;
+}
+
+/* Confirm action button */
+.button-confirm {
+  background-color: #97c9ba;
+  color: white;
+  border-color: #97c9ba;
+}
+.button-confirm:hover:not(:disabled) {
+  background-color: #432C53;
+  border-color: #432C53;
+  color: white;
+}
+
+/* Cancel action button */
+.button-cancel {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+.button-cancel:hover:not(:disabled) {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Edit action button */
+.button-edit {
+  background-color: #e9ecef;
+  color: #495057;
+  border-color: #ced4da;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+}
+.button-edit:hover:not(:disabled) {
+  background-color: #dee2e6;
+  border-color: #adb5bd;
+  color: #212529;
+}
+
+/* Delete action button */
+.button-delete {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+}
+.button-delete:hover:not(:disabled) {
+  background-color: #f1b0b7;
+  border-color: #ee9a9a;
+  color: #491217;
+}
+
+
+/* === Messages and Loading States === */
+p.error-message {
+  background-color: #ffebee;
+  border: 1px solid #ef9a9a;
+  border-left: 5px solid #d32f2f;
+  color: #c62828;
+  padding: 10px 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+/* Error message specifically within delivery edit section */
+form.delivery-edit-form .error-message {
+    margin-bottom: 0;
+}
+
+/* Styles for full section errors/states */
+section.my-store-error,
+section.no-store {
+  text-align: center;
+  padding: 50px 20px;
+  color: #666;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+section.my-store-error h2,
+section.no-store h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #444;
+}
+section.my-store-error p,
+section.no-store p {
+  color: #555;
+  line-height: 1.6;
+}
+section.my-store-error button,
+section.no-store a.button-primary {
+  margin-top: 20px;
+}
+
+
+/* === Add/Edit Product Form Styles === */
+section.add-product-form-section {
+  background-color: #fdfdfd;
+  padding: 20px 25px;
+  border-radius: 8px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+section.add-product-form-section h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+section.add-product-form-section form,
+dialog.edit-product-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+section.add-product-form-section form label,
+dialog.edit-product-modal form label {
+  display: block;
+  font-weight: 600;
+  color: #444;
+  font-size: 0.95em;
+  margin-top: 15px;
+}
+section.add-product-form-section form label:first-of-type,
+dialog.edit-product-modal form label:first-of-type {
+  margin-top: 0;
+}
+
+section.add-product-form-section form input,
+section.add-product-form-section form textarea,
+section.add-product-form-section form select,
+dialog.edit-product-modal form input,
+dialog.edit-product-modal form textarea,
+dialog.edit-product-modal form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+section.add-product-form-section form input:focus,
+section.add-product-form-section form textarea:focus,
+section.add-product-form-section form select:focus,
+dialog.edit-product-modal form input:focus,
+dialog.edit-product-modal form textarea:focus,
+dialog.edit-product-modal form select:focus {
+  border-color: #97c9ba;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(151, 201, 186, 0.25);
+}
+
+section.add-product-form-section form textarea,
+dialog.edit-product-modal form textarea {
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+section.add-product-form-section form input[type="file"],
+dialog.edit-product-modal form input[type="file"] {
+    padding: 5px;
+}
+section.add-product-form-section form input[type="file"]::file-selector-button,
+dialog.edit-product-modal form input[type="file"]::file-selector-button {
+   padding: 8px 15px;
+   margin-right: 10px;
+   border-radius: 4px;
+   border: 1px solid #ced4da;
+   background-color: #e9ecef;
+   color: #495057;
+   cursor: pointer;
+   transition: background-color 0.2s;
+}
+section.add-product-form-section form input[type="file"]::file-selector-button:hover,
+dialog.edit-product-modal form input[type="file"]::file-selector-button:hover {
+   background-color: #dee2e6;
+}
+
+/* Add product form actions container */
+section.add-product-form-section footer.add-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+
+/* === Image Preview Styles === */
+img.image-preview {
+  margin-top: 10px;
+  max-width: 120px;
+  max-height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: block;
+  object-fit: cover;
+  background-color: #f8f9fa;
+}
+
+
+/* === Products Display Section === */
+section.products-section {
+  margin-top: 40px;
+}
+section.products-section h2 {
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+p.no-products {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  color: #666;
+  border: 1px dashed #ddd;
+}
+
+ul.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li.product-list-item {
+    transition: all 0.3s ease;
+}
+
+/* === Product Card Styles === */
+article.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 100%;
+  box-sizing: border-box;
+}
+article.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+  background-color: #f8f9fa;
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-details {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-details h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.3;
+}
+.product-details .product-category {
+  color: #6c757d;
+  font-size: 0.8rem;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.product-details .product-price {
+  font-weight: 700;
+  color: #1e7e34;
+  margin: 0 0 4px 0;
+  font-size: 1.1em;
+}
+.product-details .product-quantity {
+   color: #495057;
+   font-size: 0.9em;
+   margin: 0 0 10px 0;
+}
+
+.product-details .product-description {
+  color: #495057;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Card Actions Container */
+.product-actions {
+  padding: 10px 15px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: #f8f9fa;
+  margin-top: auto;
+}
+
+
+/* === Modal Styles (Shared and Specific) === */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+dialog.edit-product-modal,
+dialog.delete-confirm-modal {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  border: none;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+dialog footer.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+dialog p.error-message {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Edit Product Modal Specific Styles */
+dialog.edit-product-modal { max-width: 550px; }
+dialog.edit-product-modal h2 { margin-top: 0; margin-bottom: 25px; color: #333; font-size: 1.5rem; text-align: center; font-weight: 600; }
+dialog.edit-product-modal footer.modal-actions { justify-content: flex-end; }
+
+/* Delete Confirmation Modal Specific Styles */
+dialog.delete-confirm-modal { max-width: 450px; text-align: center; }
+dialog.delete-confirm-modal h2 { margin-top: 0; margin-bottom: 15px; color: #721c24; font-size: 1.4rem; font-weight: 600; }
+dialog.delete-confirm-modal p { margin-bottom: 10px; line-height: 1.6; color: #444; }
+dialog.delete-confirm-modal p strong { color: #333; font-weight: 600; }
+dialog.delete-confirm-modal footer.modal-actions { justify-content: center; gap: 15px; }
+
+
+/* === Loading Spinner Styles === */
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Stack spinner and text vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; /* Give it some vertical space */
+  padding: 2rem;
+  text-align: center;
+  color: #555; /* Text color */
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #ccc; /* Light grey base border */
+  /* Use your primary color for the spinning part */
+  border-top-color: #97c9ba; /* Your primary green color */
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite; /* Reference the spin animation */
+  margin-bottom: 1rem; /* Space between spinner and text */
+}
+
+/* The spin animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text style */
+.loading-container p {
+  font-size: 1.1em;
+  color: #555;
+}
+/* === End Loading Spinner Styles === */
+
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  header.store-header { align-items: stretch; }
+  header.store-header h1 { text-align: center; font-size: 2rem; }
+  section.delivery-info-display { max-width: none; }
+  .store-actions-container { flex-direction: column; align-items: stretch; }
+  .store-actions-container > * { width: 100%; text-align: center; }
+  section.delivery-info-display dl { grid-template-columns: 1fr; gap: 5px 0; }
+  section.delivery-info-display dt { margin-bottom: 2px; }
+  section.delivery-info-display dd { margin-bottom: 8px; }
+  .delivery-header { flex-direction: column; align-items: flex-start; gap: 10px;}
+  ul.product-list { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+  dialog.edit-product-modal, dialog.delete-confirm-modal { padding: 20px; width: 90%; }
+}
+
+@media (max-width: 480px) {
+  main.my-store-container { margin: 20px auto; padding: 0 15px; }
+  header.store-header h1 { font-size: 1.8rem; }
+  ul.product-list { grid-template-columns: 1fr; }
+  .product-actions { flex-direction: row; justify-content: space-around; padding: 8px 10px; }
+  .product-actions button { flex-grow: 1; margin: 0 5px; padding: 6px 10px; font-size: 0.8rem; }
+  dialog.edit-product-modal, dialog.delete-confirm-modal { padding: 15px; width: 95%; max-height: 95vh; }
+  dialog.edit-product-modal h2 { font-size: 1.3rem; }
+  dialog.delete-confirm-modal h2 { font-size: 1.25rem; }
+  dialog footer.modal-actions, section.add-product-form-section footer.add-form-actions, .delivery-edit-actions { flex-direction: column; gap: 10px; align-items: stretch; }
+  dialog footer.modal-actions button, section.add-product-form-section footer.add-form-actions button, .delivery-edit-actions button { width: 100%; }
+  form.delivery-edit-form { gap: 3px; }
+  form.delivery-edit-form label { margin-top: 12px; font-size: 0.9rem; }
+  form.delivery-edit-form input, form.delivery-edit-form select { padding: 8px 10px; font-size: 0.95rem; }
+  section.add-product-form-section form input, section.add-product-form-section form textarea, section.add-product-form-section form select, dialog.edit-product-modal form input, dialog.edit-product-modal form textarea, dialog.edit-product-modal form select { padding: 8px 10px; font-size: 0.95rem; }
+}
